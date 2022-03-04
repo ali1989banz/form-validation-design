@@ -1,0 +1,274 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.container{
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  .simple{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background-color: #2196f3;
+    left: 0;
+
+
+  }
+  .search-box{
+    position: relative;
+    width: 400px;
+    height: 500px;
+    // border: 2px solid #000;
+    background-color: #fafafa;
+    border-radius: 10px;
+    padding:10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    box-shadow: 2px 2px 5px 0px #000;
+    label{
+      margin: 10px 5px;
+    }
+    input{
+      padding: 10px 5px;
+      outline: none;
+      border-radius: 3px;
+      border: 1px solid #000;
+    }
+    span{
+      text-transform: lowercase;
+      color: #ff0000;
+      font-weight: 200;
+      font-size: 14px;
+    }
+    .chekbox{
+      text-align: center;
+      margin: 10px 5px;
+      input{
+        cursor: pointer;
+
+        margin-right:5px ;
+        
+      }
+      label{
+        cursor: pointer;
+        font-weight: 500;
+      }
+    }
+    .search{
+      position: absolute;
+      bottom: 50px;
+      left: 50%;
+      transform: translate(-50%);
+      cursor: pointer;
+      background-color: #34c2e3;
+      padding: 10px 40%;
+      font-weight: 700;
+      border:none;
+      border-radius: 10px;
+      font-size: 17px;
+      &:hover{
+        opacity: 0.8;
+      }
+      &:active{
+        background-color: #2196f3;
+      }
+    }
+    .additional-err{
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+    }
+  }
+  .loading{
+    position: absolute;
+    width: 450px;
+    height: 550px;
+
+    background-color: #fafafa;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px 2px#000;
+    left: 40%;
+    top: 10%;
+    
+    
+    .loading-bar{
+      position: absolute;
+      bottom: 50%;
+      left: 50%;
+      transform: translate(-50%,60%);
+      .sub{
+        text-align: center;
+        font-size: 20px;
+        font-weight: 600;
+      }
+    }
+
+  }
+  .logo{
+    text-align: center;
+    padding: 10px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    width: 80%;
+    margin: 50px auto 10px auto;
+  }
+  .final{
+    position: absolute;
+    width: 450px;
+    height: 550px;
+    padding: 10px;
+    background-color: #fafafa;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px 2px#000;
+    left: 10%;
+    top: 10%;
+    .close{
+      width: 30px;
+      height:30px;
+      right: 10px;
+      top: 10px;
+      position: absolute;
+      cursor: pointer;
+      font-weight: bold;
+      // border: 1px solid #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 100%;
+      background-color: #2196f3;
+      transition: .2s ease;
+      
+      &:hover{
+        opacity: 0.8;
+      }
+      &:active{
+        background-color: #ff0000;
+      }
+    }
+    .info{
+      width: 90%;
+      margin: 10px auto;
+      
+    }
+    .more-info{
+      margin: 10px;
+      h3{
+        text-decoration: 2px underline;
+        font-weight: bold;
+        color: #2196f3;
+      }
+      .info-box{
+        height: 200px;
+        padding: 20px 10px;
+        width: 90%;
+        border: 2px solid #000;
+        margin: 5px auto;
+        scroll-behavior: smooth;
+        overflow: scroll;
+        
+        p{
+          font-weight: bold;
+          font-size: 14px;
+          span{
+            font-weight: 100;
+            opacity: 0.8;
+          }
+        }
+      }
+      .get-access{
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translate(-50%);
+        padding: 10px 30px;
+        background-color: #34c2e3;
+        border: none;
+        border-radius: 5px;
+        font-size: 17px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.2s ease;
+        &:hover{
+          opacity: 0.8;
+        }
+        &:active{
+          background-color: #2196f3;
+        }
+      }
+    }
+  }
+}
+
+@keyframes animate-stripes {
+  0% {
+      background-position: 0 0;
+  }
+
+  100% {
+      background-position: 60px 0;
+  }
+}
+
+@keyframes auto-progress {
+0% {
+  width: 0%;
+}
+
+100% {
+  width: 100%;
+}
+}
+
+.progress-bar {
+  background-color: #1a1a1a;
+  height: 45px;
+  width: 400px;
+  margin: 50px auto;
+  border-radius: 5px;
+  box-shadow: 0 1px 5px #000 inset, 0 1px 0 #444;
+}
+
+.stripes {
+  background-size: 30px 30px;
+  background-image: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.15) 25%,
+      transparent 25%,
+      transparent 50%,
+      rgba(255, 255, 255, .15) 50%,
+      rgba(255, 255, 255, .15) 75%,
+      transparent 75%,
+      transparent
+  );
+}
+
+.stripes.animated {
+animation: animate-stripes 0.6s linear infinite;
+}
+
+.stripes.animated.slower {
+animation-duration: 1.25s;
+}
+
+.stripes.reverse {
+animation-direction: reverse;
+}
+
+.progress-bar-inner {
+display: block;
+height: 45px;
+width: 0%;
+background-color: #34c2e3;
+border-radius: 3px;
+box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset;
+position: relative;
+animation: auto-progress 10s infinite linear;
+}
+

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container" id="app">
+      <div class="simple"></div>
+      <form class="search-box">
+        <label for="name">your name :</label>
+        <input
+          type="text"
+          name="name"
+          placeholder="enter your name"
+          v-model="name"
+        />
+        <span v-if="nameErr">{{nameErr[0]}}</span>
+        <label for="email">your email :</label>
+        <input
+          type="text"
+          name="email"
+          placeholder="enter your email"
+          v-model="email"
+        />
+        <span v-if="emailErr">{{emailErr[0]}}</span>
+
+        <label for="date-of-birth">your date of birth :</label>
+        <input type="date" name="" id="" v-model="date" />
+        <span v-if="dateErr">{{dateErr[0]}}</span>
+
+        <div class="chekbox" v-if="date">
+          <input
+            type="checkbox"
+            class="after-sundow"
+            v-model="checkBox"
+            id="checkbox"
+          />
+          <label for="checkbox">after sundow </label>
+        </div>
+        <button class="search" @click="inputValidation">search</button>
+        <span v-if="additionalErr" class="additional-err">additional error area</span>
+      </form>
+      <div class="loading" v-if="x">
+        <div class="logo"><h2>logo</h2></div>
+        <div class="loading-bar"> 
+          <div class="progress-bar-container">
+            <div class="progress-bar stripes animated reverse slower" id="progress-bar">
+              <span class="progress-bar-inner"></span>
+            </div></div>
+          <div class="sub">loading ....</div>
+        </div>
+        
+      </div>
+      <div class="final" v-if="!infoClose">
+        <span class="close" @click="close">X</span>
+        <div class="logo"><h2>logo</h2></div>
+
+        <div class="info" ><p>the algorithm found X hiddin message(s) in the bible for you/</p></div>
+        <div class="more-info">
+          <h3>more info :</h3>
+          <div class="info-box">
+            <p>the data that has been searched: <span>abc</span></p>
+            <p>the info: <span>fff</span></p>
+          </div>
+          <button class="get-access">get access </button>
+        </div>
+      </div>
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+
+      
+      var app = new Vue({
+        el: "#app",
+        data: {
+          name: null,
+          email: null,
+          date: null,
+          checkBox: false,
+          nameErr:[],
+          emailErr:[],
+          dateErr:[],
+          additionalErr: null,
+          s: /[^A-Za-z]+/,
+          x:false,
+          infoClose:false,
+          
+        },
+        methods: {
+          close(){
+            this.infoClose=true;
+          },
+          inputValidation(e) {
+            this.nameErr = [];
+            this.emailErr = [];
+            this.dateErr = [];
+            this.additionalErr = null;
+
+            if (!this.name) {
+              
+              this.nameErr.push("* Name can't be empty");
+            }
+            if(this.name){
+              for (n = 0; n < this.name.length; n++) {
+                if (this.name.search(/[^A-Za-z]+/) > -1) {
+                  this.nameErr.push("* use letters only");
+                }
+              }
+            }
+            if (!this.email) {
+              this.emailErr.push("* email can't be empty ");
+            }
+            if(this.email){
+              for(m=0;m<this.email.length;m++){
+                if(this.email.search(/[^A-Za-z]+/) > -1){
+                  this.emailErr.push("* use letters only")
+                }
+              }
+            }
+            if (!this.date) {
+              this.dateErr.push("* date required ");
+            }
+            // if(this.nameErr.length == 0 && this.emailErr.length == 0 && this.dateErr.length == 0){
+            //   e = true
+            // }
+            if(this.nameErr.length != 0 || this.emailErr.length != 0 || this.dateErr.length != 0){
+              this.additionalErr = true;
+            }
+            // if(!this.additionalErr){
+            //   e = true;
+            // }
+            if(!this.additionalErr){
+              this.x=true;
+            }
+            e.preventDefault();
+          },
+          
+        },
+        
+      });
+    </script>
+  </body>
+</html>
